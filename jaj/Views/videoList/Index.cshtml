@@ -6,9 +6,8 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>tvoja mama</h1>
-</div>
+    <h2>Team o7 Home Page</h2>
+
 
 <table>
     <tr>
@@ -20,16 +19,19 @@
     <tr>
         @for (int i = 0; i < Model.Count(); i++)
         {
-            <td style="padding-left:75px;rowspan=3">
-                <video width="150" height="100">
-                    <source src="@Url.Content(Model[i].videoPath)" />
-                    <video width="150" height="100" poster="@Url.Content(Model[i].videoPath)">
-                        <a href="~/Views/Upload/videoPage.cshtml">
+            <td style="padding-left:75px;rowspan:3">
+                <a href="/Upload/videoPage/@Model[i].videoID">
+                    <video width="150" height="100">
+                        <source src="@Url.Content(Model[i].videoPath)" />
+                        <video width="150" height="100" poster="@Url.Content(Model[i].videoPath)">
+                            <source src="@Url.Content(Model[i].videoPath)" />
+                        </video>
                     </video>
-                </video>
-                <br />
-                @Html.DisplayNameFor(model => model[i].videoName)
+                    <br />
+                    @(Model[i].videoName)
+                </a>
              </td>
+        
         }
     </tr>
 
@@ -67,18 +69,20 @@
     <tr>
         @for (int i = 0; i < Model.Count(); i++)
         {
-            if(HomeTag == Model[i].tag)
+            if (HomeTag == Model[i].tag)
             {
-            <td style="padding-left:75px;rowspan=3">
-                <video width="150" height="100">
-                    <source src="@Url.Content(Model[i].videoPath)" />
-                    <video width="150" height="100" poster="@Url.Content(Model[i].videoPath)">
-                        <a href="~/Views/Upload/videoPage.cshtml">
-                    </video>
-                </video>
-                <br />
-                @Html.DisplayNameFor(model => model[i].videoName)
-            </td>
+                <td style="padding-left:75px;rowspan:3">
+                    <a href="/Upload/videoPage/@Model[i].videoID">
+                        <video width="150" height="100">
+                            <source src="@Url.Content(Model[i].videoPath)" />
+                            <video width="150" height="100" poster="@Url.Content(Model[i].videoPath)">
+                                <source src="@Url.Content(Model[i].videoPath)" />
+                            </video>
+                        </video>
+                        <br />
+                        @(Model[i].videoName)
+                    </a>
+                </td>
             }
         }
     </tr>

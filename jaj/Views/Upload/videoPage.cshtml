@@ -29,11 +29,11 @@
             @Html.DisplayFor(model => model.videoPath)
         </dd>
         *@
-
-      <video src="@Url.Content(Model.videoPath)" controls>
-        Your browser does not support the video tag.
-      </video>
-
+    <dd>
+        <video src="@Url.Content(Model.videoPath)" controls>
+            Your browser does not support the video tag.
+        </video>
+    </dd>
         <dt>
             @Html.DisplayNameFor(model => model.description)
         </dt>
